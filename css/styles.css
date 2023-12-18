@@ -1,0 +1,139 @@
+:root{
+	--blanco: #ffffff;
+	--grisClaro: #DFE9F3;
+	--negro: #000;
+}
+
+html{
+	box-sizing: border-box;
+	background-color: #000;
+	color: #f7be68;
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	background-color: #fff;
+	color: black;
+	text-align: center;
+	font-size: 24px;
+	line-height: 1.6;
+}
+
+footer {
+	background-color: #fff;
+	color: black;
+	text-align: center;
+	font-size: 24px;
+	line-height: 2.0;
+	display: flex;
+	justify-content: space-around;
+}
+
+h1 {
+	margin: 0;
+	padding: 0;
+}
+
+h2{
+	font-size: 24px;
+	line-height: 1.6;
+	margin: 0;
+	padding: 0;
+	width: 50%;
+}
+
+h3{
+	font-size: 24px;
+	line-height: 1.4;
+	margin: 0;
+	padding: 0;
+	width: 50%;
+}
+
+main {
+	width: 100%;
+}
+
+.contenedor {
+	width: min(80%,1500px);
+	margin: 2% 0% 0% 10%;
+	background-image: linear-gradient(to top, black 0%, grey 200%);
+	box-shadow: 0 2px 4px rgba(247, 190, 104, 0.8), 0 4px 12px rgba(247, 190, 104, 0.8);
+	padding: 0 0 2% 0;
+}
+
+.contenedor>h2{
+	font-size: 24px;
+	line-height: 1.6;
+	margin: 0 ;
+	padding: 0;
+	text-align: center;
+	color: #f7be68;
+	width: 100%;
+	/*border-bottom: 1px solid #f7be68;*/
+	margin: 2% 10% 2% 0%;
+	background-image: linear-gradient(to top, var(--negro) 0%, var(--blanco) 100%);
+}
+
+.contenedor>h3{
+	font-size: 24px;
+	line-height: 1.4;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	color: #f7be68;
+	width: 100%;
+	border-bottom: 1px solid #f7be68;
+	display: block;
+}
+
+.contenedor>p{
+	width: 100%;
+}
+
+.contenedor-preguntas{
+	width: min(115%,1200px);
+	margin: 2% 5% 0 5%;
+	display: block;
+	border: 1px solid #f7be68;
+	border-radius: .5em;
+}
+
+.contenedor-preguntas h3{
+	width: 95%;
+	display: block;
+	border: 1px solid #f7be68;
+	border-radius: .2em;
+	margin: 2rem;
+	background-color: rebeccapurple;
+}
+
+/*.contenedor-preguntas>h3:first-child{
+	border: 0;
+}*/
+
+.contenedor-preguntas p {
+	display: block;
+	font-size: 18px;
+	line-height: 1.4;
+	margin: 2rem;
+}
+
+.boton {
+	margin: 10px 0px;
+	padding: 10px;
+	background-color: #7c1e06;
+	color: #fff;
+	border: 1px solid #f7be68;
+	border-radius: .5em;
+	display: inline-block;
+	width: min(25%,1200px);
+	margin: 2% 18% 2% 37%;
+}
+
+.bold {
+	font-weight: bold;
+	/*background-color: lightgreen;
+	color: black;*/
+}
