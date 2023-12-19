@@ -8,18 +8,22 @@
 	</head>
 	<body>
 		<header>
-			<h1>API Quiz</h1>
+			<h1><a href="./index.html">javaScript Quiz</a></h1>
 		</header>
 
 		<main>
 			<div id="contenedor" class="contenedor">
 				<h2>Preguntas</h2>
+				<p>Éste es un juego de preguntas y respuestas. Por cada pregunta acertada, ganará un punto. Al responder todas las preguntas, se mostrará la puntuación final. Espero que lo disfrute y suerte!</p>
 			</div>
-			<button type="submit" class="boton" onclick="generarFormulario()">Generar preguntas...</button>
+			<div id="contenedor-botones" class="contenedor-botones">
+				<button type="submit" class="boton" onclick="recogerDatos()">Comenzar juego</a>
+				<button type="submit" class="boton" onclick="borrarLocalStorage()">Borrar localStorage</button>
+			</div>
 		</main>		
 		
 		<footer>
-			<h2>API Quiz</h2>
+			<h2><a href="./index.html">JavaScript Quiz</a></h2>
 			<h3>Juega bajo tu responsabilidad.</h3>
 		</footer>
 	</body>
