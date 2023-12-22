@@ -7,6 +7,10 @@ function redireccionar(){
     location.href='./quiz.html';
 }
 
+function redireccionarIndex(){
+	location.href='./index.html';
+}
+
 function crearDiv(){
 	console.log("crearDiv");
 	//Creo un nuevo div que contendrá los datos del fetch
@@ -15,12 +19,13 @@ function crearDiv(){
 	newDiv.classList.add('contenedor-preguntas');
 	//Añado el elemento div al elemento con la clase ".contenedor"
 	document.querySelector(".contenedor").appendChild(newDiv);
+
 }
 
 function crearPregunta(indice, pregunta){
 	console.log("crearH3");
 	const newH3 = document.createElement("h3")
-	newH3.textContent = `Pregunta ${pregunta}`;
+	newH3.innerHTML = `Pregunta ${pregunta}`;
 	document.querySelector(".contenedor-preguntas").appendChild(newH3);
 }
 
@@ -28,14 +33,17 @@ function crearRespuestas(respuestas,respuestaCorrecta, preguntas){
 	console.log("crearP");
 	respuestas.forEach(respuesta=>{
 		const newP = document.createElement("p");
-		newP.textContent = respuesta;
+		newP.innerHTML = respuesta;
 		newP.addEventListener("click",function(){
 			newP.style.background="red";
 			newP.style.color="black";
 			if(newP.textContent == respuestaCorrecta){
+				newP.style.background="green";
+				newP.style.color="white";
 				puntos+=1;
 				numPreguntaActual+=1;
-				alert(`¡Respuesta correcta! => ${respuestaCorrecta}\nPuntuación actual: ${puntos}`);
+				//alert(`¡Respuesta correcta! => ${respuestaCorrecta}\nPuntuación actual: ${puntos}`);
+				document.querySelector(".puntuacion").innerHTML=`Puntos: ${puntos}`;
 				mostrarNuevaPregunta();
 			}
 		})
@@ -50,6 +58,7 @@ function recogerPreguntaslocalStorage(){
 
 function displayQuestion(preguntas, numPregunta){
 	console.log("displayQuestion");
+	console.log(preguntas);
 	crearDiv();
 	//pregunta.textContent = preguntas[numPregunta].question;
 	crearPregunta(numPregunta, preguntas[numPregunta].question);
@@ -66,8 +75,9 @@ function borrarForm(){
 
 function mostrarNuevaPregunta(){
 	console.log("mostrarNuevaPregunta");
-	if( numPreguntaActual === preguntas.length -1){
+	if( numPreguntaActual === preguntas.length){
 		alert(`Puntos totales: ${puntos}`);
+		setTimeout("redireccionarIndex()",3000);
 	}else{
 		borrarForm();
 		displayQuestion(preguntas, numPreguntaActual);
@@ -83,6 +93,7 @@ function crearElemento(pregunta, respuestas, respuestaCorrecta){
 }
 
 function crearArrayLocalStorage(datos){
+	console.log(`datos: ${datos}`);
 	let todasPreguntas = [];
 
 	for(let i=0; i<datos.length; i++){
@@ -99,17 +110,38 @@ function crearArrayLocalStorage(datos){
 		todasPreguntas.push(nuevoElemento);
 	}
 
-	localStorage.setItem('quiz',JSON.stringify(todasPreguntas));
+	try{
+		localStorage.setItem('quiz',JSON.stringify(todasPreguntas));
+		console.log("localStorage creado");
+	}catch (error){
+		alert(`Se ha producido un error al crear localStorage: ${error}`);
+	}
+	
 }
 
 async function obtenerDatos(url){
- 	await fetch(url)
-  		.then(res => res.json())
-  		/*.then(json => console.log(json.results))*/
-  		.then(json=>{
-  			crearArrayLocalStorage(json.results);
-  		})
-  		.catch(error => console.error(error))
+	try{
+		console.log('obtenerDatos');
+		await fetch(url)
+  			.then(res => {
+  				if(res.ok){
+  					console.log('res ok');
+  					return res.json();
+  				}
+
+  				reject(
+  					"No hemos podido recuperar ese json. El código de respuesta es: " + response.status
+  				);
+  			})
+  			.then(json=>{
+  				console.log(`El json de respuesta es: ${json}`);
+  				crearArrayLocalStorage(json.results);
+  			})
+  			.catch(error => console.error(error))
+	}catch (error){
+		alert(`Ha habido un error: ${error}`);
+	}
+
 }
 
 //Función que se llama cuando hago click al botón del formulario.
@@ -118,8 +150,7 @@ function recogerDatos(){
 	/*obtenerDatos(url);*/
 	if (typeof(Storage) !== "undefined") {
     	obtenerDatos(url);
-    	console.log("localStorage creado");
-    	setTimeout("redireccionar()",2000);
+    	setTimeout("redireccionar()",3000);
     } else {
     	console.log("El navegador no es compatible con localStorage");
     }

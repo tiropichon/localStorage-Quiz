@@ -26,6 +26,9 @@ footer {
 	text-align: center;
 	font-size: 24px;
 	line-height: 2.0;
+	width: 100%;
+	height: auto;
+	margin: 1% 0 0 0;
 	display: flex;
 	justify-content: space-around;
 }
@@ -39,6 +42,7 @@ a {
 h1 {
 	margin: 0;
 	padding: 0;
+	width: 100%;
 }
 
 h2{
@@ -59,28 +63,26 @@ h3{
 
 main {
 	width: 100%;
+	height: 46rem;
 }
 
 .contenedor {
-	width: min(100%,1200px);
-	margin: 2% 0% 2% 13%;
+	width: min(80%,1200px);
+	margin: 2% 13% 2% 13%;
 	background-image: linear-gradient(to top, black 0%, grey 200%);
 	box-shadow: 0 2px 4px rgba(247, 190, 104, 0.8), 0 4px 12px rgba(247, 190, 104, 0.8);
 	padding: 1% 0 2% 0;
-	display: block;
-	height: 40rem;
+	display: inline-block;
+	height: 30rem;
 }
 
 .contenedor>h2{
 	font-size: 24px;
 	line-height: 1.6;
-	margin: 0 ;
-	padding: 0;
 	text-align: center;
 	color: #f7be68;
 	width: 100%;
-	/*border-bottom: 1px solid #f7be68;*/
-	margin: 2% 10% 2% 0%;
+	margin: 0% 0% 2% 0%;
 	background-image: linear-gradient(to top, var(--negro) 0%, var(--blanco) 100%);
 	height: auto;
 }
@@ -118,12 +120,12 @@ main {
 
 .contenedor-preguntas{
 	width: min(90%,1200px);
-	margin: 2% 5% 2% 5%;
+	margin: 1% 5% 2% 5%;
 	border: 1px solid #f7be68;
 	border-radius: .5em;
 	display: flex;
 	flex-direction: column;
-	height: 90%;
+	height: 98%;
 }
 
 .contenedor-preguntas h3{
@@ -146,8 +148,8 @@ main {
 }
 
 .contenedor-botones {
-	width: min(100%,1200px);
-	margin: 2% 0% 2% 13%;
+	width: min(80%,1200px);
+	margin: 2% 13% 2% 13%;
 	background-image: linear-gradient(to top, black 0%, grey 200%);
 	box-shadow: 0 2px 4px rgba(247, 190, 104, 0.8), 0 4px 12px rgba(247, 190, 104, 0.8);
 	padding: 0 0 1% 0;
@@ -187,6 +189,9 @@ main {
 
 .bold {
 	font-weight: bold;
-	/*background-color: lightgreen;
-	color: black;*/
+}
+
+.puntuacion {
+	line-height: 1.6;
+	font-size: 24px;
 }
